@@ -1,0 +1,24 @@
+bundle:
+  name: telemetry_streaming_project
+
+resources:
+  jobs:
+    telemetry_pipeline_job:
+      name: "Telemetry Streaming Batch Job"
+      tasks:
+        - task_key: run_streaming_pipeline
+          spark_python_task:
+            python_file: src/pipeline.py
+          environment_key: Default
+
+      environments:
+        - environment_key: Default
+          spec:
+            client: "1"
+
+targets:
+  dev:
+    mode: development
+    default: true
+    workspace:
+      host: https://dbc-5ff4b817-07c8.cloud.databricks.com

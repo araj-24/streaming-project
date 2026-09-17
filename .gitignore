@@ -1,0 +1,10 @@
+cat << 'EOF' > .gitignore
+.git/
+.venv/
+venv/
+__pycache__/
+*.zip
+*.tar.gz
+*.pyc
+.databricks/
+EOF
